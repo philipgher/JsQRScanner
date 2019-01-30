@@ -14,6 +14,10 @@ function handleSuccess(stream) {
   console.log(`Using video device: ${videoTracks[0].label}`);
   videoTracks.forEach(element => {
     document.getElementsByClassName('cameras').appendChild(document.createTextNode(videoTracks[element]));
+    var node = document.createElement('p');                 // Create a <li> node
+    var textnode = document.createTextNode(element);         // Create a text node
+    node.appendChild(textnode);                              // Append the text to <li>
+    document.getElementById("cameras").appendChild(node);
   });
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
