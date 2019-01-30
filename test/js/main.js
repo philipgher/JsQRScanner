@@ -9,7 +9,7 @@ const constraints = window.constraints = {
 function handleSuccess(stream) {
   const video = document.querySelector('video');
   const videoTracks = stream.getVideoTracks();
-  videoTracks.array.forEach(element => {
+  videoTracks.forEach(element => {
     document.getElementsByClassName('cameras').appendChild(document.createTextNode(videoTracks[element]));
   });
   console.log(videoTracks);
