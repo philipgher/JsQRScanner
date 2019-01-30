@@ -9,12 +9,12 @@ const constraints = window.constraints = {
 function handleSuccess(stream) {
   const video = document.querySelector('video');
   const videoTracks = stream.getVideoTracks();
-  videoTracks.forEach(element => {
-    document.getElementsByClassName('cameras').appendChild(document.createTextNode(videoTracks[element]));
-  });
   console.log(videoTracks);
   console.log('Got stream with constraints:', constraints);
   console.log(`Using video device: ${videoTracks[0].label}`);
+  videoTracks.forEach(element => {
+    document.getElementsByClassName('cameras').appendChild(document.createTextNode(videoTracks[element]));
+  });
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
 }
